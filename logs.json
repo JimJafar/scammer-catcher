@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "time": 1694530296845,
+    "ip": "86.162.30.120",
+    "userInfo": {
+      "ip": "86.162.30.120",
+      "type": "ipv4",
+      "continent_code": "EU",
+      "continent_name": "Europe",
+      "country_code": "GB",
+      "country_name": "United Kingdom",
+      "region_code": "ENG",
+      "region_name": "England",
+      "city": "Sheffield",
+      "zip": "S1",
+      "latitude": 53.3872184753418,
+      "longitude": -1.4286099672317505,
+      "location": {
+        "geoname_id": 2638077,
+        "capital": "London",
+        "languages": [
+          {
+            "code": "en",
+            "name": "English",
+            "native": "English"
+          }
+        ],
+        "country_flag": "https://assets.ipstack.com/flags/gb.svg",
+        "country_flag_emoji": "🇬🇧",
+        "country_flag_emoji_unicode": "U+1F1EC U+1F1E7",
+        "calling_code": "44",
+        "is_eu": true
+      }
+    }
+  }
+]

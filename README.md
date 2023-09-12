@@ -2,21 +2,33 @@
 
 ## Getting started
 This is a basic Elysia server with frontend support <br>
-Run the following to get started.
-```bash
-bun create elysia-buchta ./elysia-app
-cd ./elysia-app
-```
 
 ## Starting the development server
+
+Create a `.env` file and add `IPAPI_KEY=XXXX` using your valid IPAPI key.
+
 To start development server run.
 ```bash
 bun run index.ts
 ```
 
-Open http://localhost:3000/ with your browser to see the result.
+Open http://localhost:5335/ with your browser to see the result.
+
+## Running in PROD
+
+Create a `.env` file and add `IPAPI_KEY=XXXX` using your valid IPAPI key.
+
+Then:
+
+```shell
+  docker build -t scammer-catcher:0.1 .
+  docker-compose up
+```
+
+Open https://your-domain:5335/ with your browser to see the result.
 
 ## Understanding file structure
+
 [Buchta](https://github.com/Fire-The-Fox/buchta) is Bun-First integrable build step for frontend. <br>
 Which means it can be used in a framework like Elysia, because it has offical integration.
 ```
@@ -27,6 +39,7 @@ public/ - directory containing your frontend code
 ```
 
 ## Configuration
+
 Very basic config for Buchta
 ```ts
 import { BuchtaConfig } from "buchta";

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <script lang="javascript" src="app.js"></script> -->
+    </head>
+    <body>
+        <script>
+            let ip;
+
+            fetch("https://api.ipify.org?format=json")
+                .then((response) => response.json())
+                .then((data) => {
+                    ip = data.ip;
+                    fetch(`/api/log/${data.ip}`);
+                });
+
+            function submitAddress() {
+                const success = document.getElementById("success");
+                const form = document.getElementById("form");
+                const recipient = document.getElementById("recipient").value;
+                const street = document.getElementById("street").value;
+                const city = document.getElementById("city").value;
+                const postcode = document.getElementById("postcode").value;
+                const country = document.getElementById("country").value;
+                const address = {
+                    recipient,
+                    street,
+                    city,
+                    postcode,
+                    country,
+                };
+                fetch("/api/address", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ ip, address }),
+                })
+                    .then(() => {
+                        success.style.display = "block";
+                        form.style.display = "none";
+                    });
+            }
+        </script>
+        <h1>Thank you for your purchase!</h1>
+        <h2>Please enter your shipping address below</h2>
+        <div id="success" style="display: none">
+            <h3>Success!</h3>
+            <p>Your address has been saved</p>
+        </div>
+        <div id="form" style="display: block;">
+            <div>
+                <label for="name">Recipient name</label>
+                <input type="text" id="recipient" name="recipient" />
+            </div>
+            <div>
+                <label for="street">Street name and number</label>
+                <input type="text" id="street" name="street" />
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" />
+            </div>
+            <div>
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" />
+            </div>
+            <div>
+                <label for="country">Country</label>
+                <input type="text" id="country" name="country" />
+            </div>
+            <div>
+                <label for="product">Which product have you purchased?</label>
+                <input type="text" id="product" name="product" />
+            </div>
+            <div>
+                <button type="button" onclick="submitAddress()">Submit</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "elysia-app",
+  "version": "1.0.12",
+  "dependencies": {
+    "buchta-elysia-integration": "latest"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "index.ts"
+}

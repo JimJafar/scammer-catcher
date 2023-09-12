@@ -22,7 +22,7 @@ Then:
 
 ```shell
   docker build -t scammer-catcher:0.1 .
-  docker-compose up
+  docker-compose up -d
 ```
 
 Open https://your-domain:5335/ with your browser to see the result.

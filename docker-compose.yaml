@@ -1,0 +1,15 @@
+version: "2"
+services:
+  server:
+    container_name: "scammer-catcher"
+    image: "scammer-catcher:0.1"
+    working_dir: /home/node/client
+    ports:
+      - "5335:5335"
+    command: >
+      /bin/bash -c "npm install
+      && bun run index.ts"
+    volumes:
+      - .:/home/node/client
+    env_file:
+      - ./.env
